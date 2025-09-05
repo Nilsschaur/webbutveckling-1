@@ -4,12 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV</title>
+
+    
+    <style>
+        * {
+            padding: 0;
+            margin: 0
+        }
+
+        .nav-header {
+            background-color:aquamarine;
+            padding: 16px;
+        }
+
+        .nav-ul {
+            list-style: none;
+            display: flex;
+            gap: 32px;
+            justify-content: space-evenly;
+            max-width: 700px;
+            background-color: rgba(0, 240, 160, 0.162);
+            margin: auto
+        }
+    </style>
 </head>
 <body>
-    <header>
+    <header class="nav-header">
         <nav>
-            <ul>
-                <li>Om mig</li>
+            <ul class="nav-ul">
+                <li><a href="#footer">Om mig</a></li>
                 <li>Utbildning</li>
                 <li>Arbetslivserfarenhet</li>
                 <li>Tech stack</li>
@@ -18,7 +41,7 @@
     </header>
 
     <main>
-        <section>
+        <section class="about-me">
             <h2>Om mig</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, quas eveniet at rerum animi molestias. Praesentium libero eaque fugiat vel!</p>
         </section>
@@ -79,7 +102,7 @@
             
             <div>
                 
-                 <h4>Programeringspråkk</h4>
+                 <h4>Programeringspråk</h4>
                  <ul>
                     <li>Python</li>
                     <li>JavaScript</li>
@@ -100,6 +123,10 @@
             </article>
         </div>
     </main>
+    <footer id="footer">
+        <a href="tel:+0700001112">707 000 11 12</a>
+        <a href="mailto:schaurnils858@gmail.com">Skicka Email</a>
+    </footer>
 </body>
 </html>
     
