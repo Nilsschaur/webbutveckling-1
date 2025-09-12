@@ -26,27 +26,53 @@
             background-color: rgba(0, 240, 160, 0.162);
             margin: auto
         }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            font-family: arial, helvetica, sans-serif;
+        }
+        a:hover{
+            transition: all 0.5s ease-in-out;
+            text-decoration: underline;
+            color: #f7f7f7;
+            font-family: Arial, helvetica, sans-serif;
+        }
+        a:hover {
+            transition: all 0.2s ease-in-out;
+            color: #000;
+            text-decoration: underline;
+        }
+        main{
+            background-color: rgb(225, 225, 255);
+            display:flex;
+            flex-direction: color;
+            gap: 64px;
+            padding: 64px;
+        }
+        
     </style>
 </head>
 <body>
     <header class="nav-header">
         <nav>
             <ul class="nav-ul">
-                <li><a href="#footer">Om mig</a></li>
-                <li>Utbildning</li>
-                <li>Arbetslivserfarenhet</li>
-                <li>Tech stack</li>
+                <li><a href="#about-me">Om mig</a></li>
+                <li><a href="#education">Utbildning</a></li>
+                <li><a href="#work">Arbetslivserfarenhet</a></li>
+                <li><a href="#tech-stack">Tech stack</a></li>
+                <li><a href="#contact">Kontakt</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section class="about-me">
+        <section class="about-me" id="about-me">
             <h2>Om mig</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, quas eveniet at rerum animi molestias. Praesentium libero eaque fugiat vel!</p>
         </section>
 
-        <section>
+        <section id="education">
             <h2>Utbildning</h2>
             
             <article>
