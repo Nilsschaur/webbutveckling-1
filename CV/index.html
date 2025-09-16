@@ -13,7 +13,7 @@
         }
 
         .nav-header {
-            background-color:aquamarine;
+            background-color:rgb(135, 47, 47);
             padding: 16px;
         }
 
@@ -23,7 +23,6 @@
             gap: 32px;
             justify-content: space-evenly;
             max-width: 700px;
-            background-color: rgba(0, 240, 160, 0.162);
             margin: auto
         }
 
@@ -34,9 +33,9 @@
         }
         a:hover{
             transition: all 0.5s ease-in-out;
-            text-decoration: underline;
+            text-decoration: none;
             color: #f7f7f7;
-            font-family: Arial, helvetica, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
         }
         a:hover {
             transition: all 0.2s ease-in-out;
@@ -44,13 +43,52 @@
             text-decoration: underline;
         }
         main{
-            background-color: rgb(225, 225, 255);
+            background-color: rgb(136, 133, 133);
             display:flex;
-            flex-direction: color;
-            gap: 64px;
-            padding: 64px;
+            flex-direction: column;
+            gap: 4rem;
         }
         
+        .about-me {
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            background-color: #e3cccc;
+            padding: 4rem;
+        }
+
+        .education {
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            background-color: #e3cccc;
+            padding: 4rem;
+        }
+
+        article {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .article-header {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        ol {
+            list-style: none;
+            line-height: 1.2rem;
+        }
+
+        .p-header {
+    
+        }
+
+
     </style>
 </head>
 <body>
@@ -72,13 +110,13 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, quas eveniet at rerum animi molestias. Praesentium libero eaque fugiat vel!</p>
         </section>
 
-        <section id="education">
+        <section class="education" id="education">
             <h2>Utbildning</h2>
             
             <article>
-                <header>
+                <header class="article-header">
                  <h4>Teknik</h4>
-                 <p>
+                 <p class="p-header">
                     <strong>Boberg</strong>
                     <time datetime="2025-10">Oktober 2025</time>
                     <span></span>
@@ -102,7 +140,7 @@
             <h2>Arbetslivserfarenhet</h2>
             
             <article>
-                <header>
+                <header class="article-header">
                  <h4>Blender</h4>
                  <p>
                     <strong>Boberg</strong>
