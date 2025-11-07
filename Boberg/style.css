@@ -9,14 +9,15 @@ button {
 }
 
 header {
-    background-color: wheat;
-    padding: 16px;
+    /*background-color: burlywood */
     min-height: calc(100vh - 32px);
 }
 
 nav {
     position: relative;
     display: block;
+    background-color: #f1f1f1;
+    padding: 32px;
 }
 
 .hidden {
@@ -44,9 +45,9 @@ a {
    font-style: normal;
 }
 
-.menu-close-beta {
+.menu-btn {
     width: 32px;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 16px;
+    right: 16px;
 }
