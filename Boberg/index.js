@@ -4,6 +4,8 @@ const hamburgerBtn = document.querySelector("#menu-open");
 
 const closeBtn = document.querySelector("#menu-close");
 
+let shownEvents = 3;
+
 const news = [
   {
     id: "1",
@@ -11,7 +13,7 @@ const news = [
     title: "Föredrag 22/10",
     date: "16 oktober 2025",
     content:
-      "Niorna kommer och hälsar på och våra egna elever blir utan lektioner då bjuder vi in föreläsare som kommer och tar hand om dem istället! Åk1 och HSF2 börjar dagen med ett evenemang i Folkets Hus Ånge men kommer sedan upp och avslutar dagen med övriga. Åk3 och YRK2 är i Aulan och får träffa representanter från polisen, Näringslivskontoret, Rocco Oil, Campus Ånge/Komvux, Ålsta folkhögskola, socialkontoret och Kriminalvården. Vi hoppas på en spännande dag!",
+      "Niorna kommer och hälsar på och våra egna elever blir utan lektioner – då bjuder vi in föreläsare som kommer och tar hand om dem istället! Åk1 och HSF2 börjar dagen med ett evenemang i Folkets Hus Ånge men kommer sedan upp och avslutar dagen med övriga. Åk3 och YRK2 är i Aulan och får träffa representanter från polisen, Näringslivskontoret, Rocco Oil, Campus Ånge/Komvux, Ålsta folkhögskola, socialkontoret och Kriminalvården. Vi hoppas på en spännande dag!",
   },
   {
     id: "2",
@@ -28,6 +30,76 @@ const news = [
     date: "2 september 2025",
     content:
       "Till vårdnadshavare för elever i årskurs 1 Välkomna till föräldramöte! Ni är varmt välkomna till skolan för att träffa rektor, mentorer och en del annan personal. Vi vill gärna ha ett nära samarbete med er så att vi tillsammans kan hjälpa eleverna att lyckas med sin skolgång. Det är första terminen för era ungdomar i en ny skolform som ställer annorlunda krav och har andra förutsättningar än tidigare. Tid:      Tisdag 9 september 2025, kl. 18.30. Plats:            Aulan, Bobergsgymnasiet (mitt i huset, en trappa upp från huvudentrén). Vi kommer först ses i helgrupp för en del allmän information. Efter det går ni vidare med mentorerna för ytterligare information och samtal om just er klass. Under kvällen kommer vi att tala om våra regler och rutiner, informera om programmen i gymnasieskolan och hur arbetet med elevernas lärande går till på Bobergsgymnasiet. Naturligtvis bjuder vi även på fika. Välkomna! / Jennie Stadling Wilsson, rektor Bobergsgymnasiet. Vi ber er fylla i nedanstående talong som lämnas till mentor senast torsdag 4/9. Tack!",
+  },
+];
+
+const events = [
+  {
+    day: "10",
+    month: "DEC",
+    title: "Nobeldag/UF-mässa",
+    weekday: "onsdag",
+    statusColor: "yellow",
+  },
+  {
+    day: "19",
+    month: "DEC",
+    title: "Julavslutning",
+    weekday: "fredag",
+    statusColor: "green",
+  },
+  {
+    day: "20",
+    month: "DEC",
+    endDay: "07",
+    endMonth: "JAN",
+    title: "Jullov",
+    weekday: "lördag",
+    statusColor: "red",
+  },
+  {
+    day: "15",
+    month: "JAN",
+    title: "Studiebesök åk2",
+    weekday: "onsdag",
+    statusColor: "yellow",
+  },
+  {
+    day: "28",
+    month: "JAN",
+    endDay: "30",
+    endMonth: "JAN",
+    title: "Nobeldag/UF-mässa",
+    weekday: "onsdag",
+    statusColor: "yellow",
+  },
+  {
+    day: "10",
+    month: "DEC",
+    title: "Nobeldag/UF-mässa",
+    weekday: "onsdag",
+    statusColor: "yellow",
+  },
+  {
+    day: "10",
+    month: "DEC",
+    title: "Nobeldag/UF-mässa",
+    weekday: "onsdag",
+    statusColor: "yellow",
+  },
+  {
+    day: "10",
+    month: "DEC",
+    title: "Nobeldag/UF-mässa",
+    weekday: "onsdag",
+    statusColor: "yellow",
+  },
+  {
+    day: "10",
+    month: "DEC",
+    title: "Nobeldag/UF-mässa",
+    weekday: "onsdag",
+    statusColor: "yellow",
   },
 ];
 
@@ -67,7 +139,7 @@ const renderNews = () => {
     `;
 
     card.addEventListener("click", () => {
-        window.location.href = `news.html?id=${news.id}`;
+      window.location.href = `news.html?id=${news.id}`;
     });
 
     container.appendChild(card);
@@ -75,42 +147,75 @@ const renderNews = () => {
 };
 
 const renderNewsDetail = () => {
-    const container = document.querySelector(".news-content");
-    if (!container) return;
+  const container = document.querySelector(".news-content");
+  if (!container) return;
 
-    //Hämta ID från URL-parametern
-    const urlParams = new URLSearchParams(window.location.search);
-    const newsId =urlParams.get("id");
+  // Hämta ID från URL-parametern
+  const urlParams = new URLSearchParams(window.location.search);
+  const newsId = urlParams.get("id");
 
-    // Hitta rätt artikel
-    const newsItem = news.find((n) => n.id === newsId);
+  // Hitta rätt artikel
+  const newsItem = news.find((n) => n.id === newsId);
 
-    if (newsItem) {
-        container.innerHTML = `
-            <img src="${newsItem.img}" alt="${newsItem.title}" class"news-image" />
-            <h1 class="news-title">${newsItem.title}</h1>
-            <p class="news-date">${newsItem.date}</p>
-            <p class="news-text">${newsItem.content}</p>
-        `;
+  if (newsItem) {
+    container.innerHTML = `
+      <img src="${newsItem.img}" alt="${newsItem.title}" class="news-image" />
+      <h1 class="news-title">${newsItem.title}</h1>
+      <p class="news-date">${newsItem.date}</p>
+      <p class="news-text">${newsItem.content}</p>
+    `;
+  } else {
+    container.innerHTML = `
+      <p>Artikeln kunde inte hittas din jävla kycklingko.</p>
+    `;
+  }
+};
+
+const createDateElement = (event) => {
+  //Kolla om händelsen har ett slutdatum
+  if (event.endDay && event.endMonth) {
+    //kolla om eventkon är inom samma månad
+    if (event.month === event.endMonth) {
+      //Om samma månad, visa datum i en ruta
+      return `
+        <div class="event-date">
+          <div class="date-container">
+            <h2>${event.day} - ${event.endDay}</h2>
+         </div>
+        <div class="event.date">
+          <div class="month-container">
+            <p>${event.month} - ${event.endMonth}</p>
+          </div>
+        </div>
+      `;
     } else {
-        container.innerHTML = `
-            <p>Artikeln kunde inte hittas.</p>     
-        `;
+      return `
+        <div class="event-date">
+          <div class="date-container">
+            <h2>${event.day}</h2>
+          </div>
+          <div class="date-container">
+            <h2>${event.day}</h2>
+          </div>
+        </div>
+
+        <div class="event-date">
+          <div class="month-container">
+            <h2>${event.month}</h2>
+          </div>
+          <div class="month-container">
+            <h2>${event.month}</h2>
+          </div>
+        </div>
+      `;
     }
+  } else {
+    return `
+      
+    `;
+  }
 };
 
 // Kör rätt funktion beroende på vilken sida vi är på
 if (document.querySelector(".news-grid")) renderNews();
 if (document.querySelector(".news-content")) renderNewsDetail();
-
-function toggleText() {
-    const points = document.getElementById("points");
-    const moreText = document.getElementById("moreText");
-    const button = document.getElementById("textButton");
-  
-    const isHidden = moreText.style.display === "none";
-  
-    moreText.style.display = isHidden ? "inline" : "none";
-    points.style.display = isHidden ? "none" : "inline";
-    button.innerHTML = isHidden ? "Visa mindre" : "Visa fler";
- }
