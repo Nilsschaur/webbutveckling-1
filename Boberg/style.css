@@ -112,3 +112,48 @@ a {
 .back-link:hover {
   text-decoration: underline;
 }
+
+/* Event-list */
+.event-article {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.event-list {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.event-card {
+  background-color: #939393;
+}
+
+.date-wrapper {
+  padding: 16px;
+  background-color: #323232;
+  display: flex;
+  gap: 16px;
+}
+
+.event-date {
+  background-color: aqua;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  color: antiquewhite;
+  font-weight: 700;
+}
+
+.date-day {
+  padding: 8px;
+}
+
+.date-month {
+  padding: 8px;
+  border-radius: 0px 0px 8px 8px;
+  background-color: bisque;
+}

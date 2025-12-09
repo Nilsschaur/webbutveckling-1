@@ -49,13 +49,13 @@ const events = [
     statusColor: "green",
   },
   {
-    day: "20",
-    month: "DEC",
-    endDay: "07",
+    day: "28",
+    month: "JAN",
+    endDay: "30",
     endMonth: "JAN",
-    title: "Jullov",
-    weekday: "lördag",
-    statusColor: "red",
+    title: "Nobeldag/UF-mässa",
+    weekday: "onsdag",
+    statusColor: "yellow",
   },
   {
     day: "15",
@@ -225,8 +225,10 @@ const renderEvents = () => {
     const dateHtml = createDateElement(event)
 
     eventElement.innerHTML = `
-      <article>
+      <article class="event-card">
+        <div class="date-wrapper">
         ${dateHtml}
+        </div>
         <section class"event-info">
           <header class="event-title-row">
             <h3 class="event-title">${event.title}</h3>
@@ -236,6 +238,7 @@ const renderEvents = () => {
           <time class="event-weekday" datetime="${event.weekday}">${event.weekday}</time>
         </section>
         <a href="#" class="event-details">Detaljer</a>
+        <hr />
       </article
     `;
 
@@ -245,6 +248,8 @@ const renderEvents = () => {
 
 //Funktion för att hantera visa fler knappen
 const handleShowMore = () => {
+  
+
   //Öka antal händelser som ska visas
   shownEvents += 3;
 
@@ -257,7 +262,10 @@ const handleShowMore = () => {
     btn.classList.add("hidden");
   }
 };
+const showMoreBtn = document.querySelector(".show-more-btn");
+if (showMoreBtn) showMoreBtn.addEventListener("click", handleShowMore);
 
 // Kör rätt funktion beroende på vilken sida vi är på
 if (document.querySelector(".news-grid")) renderNews();
 if (document.querySelector(".news-content")) renderNewsDetail();
+if (document.querySelector(".event-list")) renderEvents();
