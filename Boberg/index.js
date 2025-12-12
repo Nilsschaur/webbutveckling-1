@@ -49,13 +49,13 @@ const events = [
     statusColor: "green",
   },
   {
-    day: "28",
-    month: "JAN",
-    endDay: "30",
+    day: "20",
+    month: "DEC",
+    endDay: "07",
     endMonth: "JAN",
-    title: "Nobeldag/UF-mässa",
-    weekday: "onsdag",
-    statusColor: "yellow",
+    title: "Jullov",
+    weekday: "lördag",
+    statusColor: "red",
   },
   {
     day: "15",
@@ -166,7 +166,7 @@ const renderNewsDetail = () => {
     `;
   } else {
     container.innerHTML = `
-      <p>Artikeln kunde inte hittas din jävla kycklingko.</p>
+      <p>Artikeln kunde inte hittas.</p>
     `;
   }
 };
@@ -174,20 +174,22 @@ const renderNewsDetail = () => {
 const createDateElement = (event) => {
   //Kolla om händelsen har ett slutdatum
   if (event.endDay && event.endMonth) {
-    //kolla om eventkon är inom samma månad
+    //Kolla om händelsen är inom samma månad
     if (event.month === event.endMonth) {
-      //Om samma månad, visa datum i en ruta
+      // Om samma månad, visa datum i en ruta
       return `
         <time class="event-date" datetime="${event.day}-${event.month}">
-          <span class="date-day">${event.day}</span>
-          <span class="date-separator">-</span>
-          <span class="date-day">${event.endDay}</span>
+          <div class="day-wrapper"
+            <span class="date-day">${event.day}</span>
+            <span class="date-separator">-</span>
+            <span class="date-day">${event.endDay}</span>
+          </div>
           <span class="date-month">${event.month}</span>
         </time>
       `;
     } else {
       return `
-        <time class"event-date" datetime="${event.day}-${event.month}">
+        <time class="event-date" datetime="${event.day}-${event.month}">
           <span class="date-day">${event.day}</span>
           <span class="date-month">${event.month}</span>
         </time>
@@ -211,7 +213,7 @@ const renderEvents = () => {
   const container = document.querySelector(".event-list");
 
   //Töm containern först
-  container .innerHTML = "";
+  container.innerHTML = "";
 
   //Hämta rätt antal händelser från arrayen
   const eventsToShow = events.slice(0, shownEvents);
@@ -222,24 +224,25 @@ const renderEvents = () => {
     eventElement.className = "event-item";
 
     //Skapa datum-HTML med hjälp av funktion
-    const dateHtml = createDateElement(event)
+    const dateHtml = createDateElement(event);
 
     eventElement.innerHTML = `
       <article class="event-card">
+      <hr />
         <div class="date-wrapper">
-        ${dateHtml}
+          ${dateHtml}
         </div>
-        <section class"event-info">
+        <section class="event-info">
           <header class="event-title-row">
             <h3 class="event-title">${event.title}</h3>
-            <span class="status-circle status-${event.statusColor}" aria-label="Status">
-            </span>
+            <div class="status-circle status-${event.statusColor}" aria-label="Status">
+            </div>
           </header>
           <time class="event-weekday" datetime="${event.weekday}">${event.weekday}</time>
         </section>
         <a href="#" class="event-details">Detaljer</a>
-        <hr />
-      </article
+        <hr class="hr"/>
+      </article>
     `;
 
     container.appendChild(eventElement);
@@ -248,16 +251,14 @@ const renderEvents = () => {
 
 //Funktion för att hantera visa fler knappen
 const handleShowMore = () => {
-  
-
-  //Öka antal händelser som ska visas
+  //Öka antalet händelser som ska visas
   shownEvents += 3;
 
-  //Renderar om listan med fler händelser
+  //Rendera om listan med fler händelser
   renderEvents();
 
   //Dölj knappen om alla händelser visas
-  if (shownEvents >= events.lenght) {
+  if (shownEvents >= events.length) {
     const btn = document.querySelector(".show-more-btn");
     btn.classList.add("hidden");
   }
